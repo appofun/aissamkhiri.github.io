@@ -1,618 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow" />
-  <title>Aissam Khiri — Secure Portal</title>
-  <meta name="description" content="Official contact portal for Aissam Khiri. Mobile developer, builder." />
-  <meta name="author" content="Aissam Khiri" />
-  <link rel="canonical" href="https://aissamkhiri.com/" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://aissamkhiri.com/" />
-  <meta property="og:title"       content="Aissam Khiri — Builder. Not on social media." />
-  <meta property="og:description" content="I don't post, I don't scroll. I build. Let's talk business." />
+  <!-- ═══════════════════════════════════════════════════════
+       SEO TITLE — Edit here
+  ═══════════════════════════════════════════════════════ -->
+  <title>Aissam Khiri - Reserved Personal Domain</title>
 
-  <!-- ╔══════════════════════════════════════════════════════════════════╗ -->
-  <!-- ║  ANALYTICS — PASTE YOUR TRACKING SCRIPT BELOW THIS LINE        ║ -->
-  <!-- ║  Supports: Cloudflare Web Analytics, Google Analytics (gtag),  ║ -->
-  <!-- ║            Plausible, Fathom, or any other script tag.         ║ -->
-  <!-- ╠══════════════════════════════════════════════════════════════════╣ -->
+  <!-- ═══════════════════════════════════════════════════════
+       SEO META TAGS
+  ═══════════════════════════════════════════════════════ -->
+  <meta name="description" content="AissamKhiri.com is a reserved personal domain with a minimal privacy-focused contact page and no public personal information.">
+  <meta name="keywords" content="Aissam Khiri, AissamKhiri.com, reserved personal domain, official personal domain, private contact page">
+  <meta name="author" content="Aissam Khiri">
+  <meta name="robots" content="index, follow">
 
+  <!-- ═══════════════════════════════════════════════════════
+       OPEN GRAPH
+  ═══════════════════════════════════════════════════════ -->
+  <meta property="og:title" content="Aissam Khiri - Reserved Personal Domain">
+  <meta property="og:description" content="A minimal privacy-focused personal domain page with a Get in Touch section and no public personal information.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aissamkhiri.com">
+  <meta property="og:site_name" content="Aissam Khiri">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Aissam Khiri - Reserved Personal Domain">
+  <meta name="twitter:description" content="A minimal privacy-focused personal domain page with a Get in Touch section and no public personal information.">
 
+  <!-- ═══════════════════════════════════════════════════════
+       FAVICON — Replace with real files when ready
+       <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+       <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  ═══════════════════════════════════════════════════════ -->
 
-  <!-- ╠══════════════════════════════════════════════════════════════════╣ -->
-  <!-- ║  END ANALYTICS                                                  ║ -->
-  <!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+  <!-- ═══════════════════════════════════════════════════════
+       GOOGLE FONTS — Inter + Space Grotesk
+  ═══════════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            mono: ['"Share Tech Mono"', 'Courier New', 'monospace'],
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
-
-  <style>
-    /* ── Variables ──────────────────────────────────────── */
-    :root {
-      --g:       #00ff88;
-      --g-dim:   rgba(0, 255, 136, 0.55);
-      --g-glow:  rgba(0, 255, 136, 0.18);
-      --g-faint: rgba(0, 255, 136, 0.035);
-      --g-line:  rgba(0, 255, 136, 0.10);
-      --bg:      #050508;
-      --border:  rgba(0, 255, 136, 0.10);
-      --bh:      rgba(0, 255, 136, 0.32);
-      --text:    #d4d4d8;
-      --muted:   #52525b;
-      --faint:   #27272a;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; color-scheme: dark; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* ── Dot grid ───────────────────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image:
-        radial-gradient(circle, rgba(0,255,136,0.18) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.45;
-    }
-
-    /* ── Scanline sweep bar ─────────────────────────────── */
-    .scanline {
-      position: fixed;
-      top: -12%;
-      left: 0; right: 0;
-      height: 12%;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(0, 255, 136, 0.018) 50%,
-        transparent 100%
-      );
-      pointer-events: none;
-      z-index: 2;
-      animation: sweep 9s linear infinite;
-    }
-    @keyframes sweep {
-      from { top: -12%; }
-      to   { top: 112%; }
-    }
-
-    /* ── Vignette ───────────────────────────────────────── */
-    .vignette {
-      position: fixed; inset: 0;
-      background: radial-gradient(ellipse at center, transparent 50%, rgba(5,5,8,0.85) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* ── Corner glows ───────────────────────────────────── */
-    .glow-tl {
-      position: fixed; top: -280px; left: -280px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,255,136,0.07) 0%, transparent 65%);
-      pointer-events: none; z-index: 0;
-    }
-    .glow-br {
-      position: fixed; bottom: -280px; right: -280px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,180,255,0.04) 0%, transparent 65%);
-      pointer-events: none; z-index: 0;
-    }
-
-    /* ── Content layer ──────────────────────────────────── */
-    .layer { position: relative; z-index: 10; }
-
-    /* ── Terminal block ─────────────────────────────────── */
-    .terminal {
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      background: rgba(0, 255, 136, 0.018);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      position: relative;
-      overflow: hidden;
-    }
-    .terminal::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,255,136,0.06) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    .terminal-bar {
-      border-bottom: 1px solid var(--border);
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .dot { width: 8px; height: 8px; border-radius: 50%; }
-
-    /* ── Blink cursor ───────────────────────────────────── */
-    .cursor {
-      display: inline-block;
-      width: 7px; height: 13px;
-      background: var(--g);
-      vertical-align: middle;
-      box-shadow: 0 0 8px var(--g), 0 0 16px var(--g-glow);
-      animation: blink 1.1s step-end infinite;
-      border-radius: 1px;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-    /* ── Pulse dot ──────────────────────────────────────── */
-    .live-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--g);
-      box-shadow: 0 0 8px var(--g), 0 0 18px var(--g-glow);
-      display: inline-block;
-      animation: pulse 2.2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%,100%{ box-shadow: 0 0 6px var(--g), 0 0 12px var(--g-glow); }
-      50%    { box-shadow: 0 0 14px var(--g), 0 0 28px var(--g-glow), 0 0 44px rgba(0,255,136,0.12); }
-    }
-
-    /* ── Neon text ──────────────────────────────────────── */
-    .neon {
-      color: var(--g);
-      text-shadow: 0 0 18px rgba(0,255,136,0.55), 0 0 36px rgba(0,255,136,0.22);
-    }
-    .neon-label {
-      font-family: "Share Tech Mono", monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--g);
-      text-shadow: 0 0 10px rgba(0,255,136,0.4);
-    }
-
-    /* ── Glitch on "social media." ──────────────────────── */
-    .glitch { position: relative; display: inline-block; }
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-    }
-    .glitch::before {
-      color: #00e5ff;
-      animation: glitch-a 6s infinite;
-      clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
-    }
-    .glitch::after {
-      color: #ff003c;
-      animation: glitch-b 6s infinite;
-      clip-path: polygon(0 65%, 100% 65%, 100% 82%, 0 82%);
-    }
-    @keyframes glitch-a {
-      0%,89%,100%{ transform:translate(0); opacity:0; }
-      90%{ transform:translate(-3px, 1px); opacity:0.8; }
-      91%{ transform:translate(3px,-1px); opacity:0.8; }
-      92%{ transform:translate(0); opacity:0; }
-    }
-    @keyframes glitch-b {
-      0%,91%,100%{ transform:translate(0); opacity:0; }
-      92%{ transform:translate(3px, 2px); opacity:0.7; }
-      93%{ transform:translate(-2px,-1px); opacity:0.7; }
-      94%{ transform:translate(0); opacity:0; }
-    }
-
-    /* ── "I BUILD." large type ──────────────────────────── */
-    .build-text {
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: var(--g);
-      text-shadow:
-        0 0 40px rgba(0,255,136,0.4),
-        0 0 80px rgba(0,255,136,0.15),
-        0 0 120px rgba(0,255,136,0.06);
-    }
-
-    /* ── Horizontal neon rule ────────────────────────────── */
-    .neon-rule {
-      border: none; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--g-glow), transparent);
-    }
-
-    /* ── Form inputs ────────────────────────────────────── */
-    .form-field {
-      display: block;
-      width: 100%;
-      background: rgba(0,255,136,0.02);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      color: var(--text);
-      font-family: "Share Tech Mono", monospace;
-      font-size: 0.85rem;
-      letter-spacing: 0.04em;
-      padding: 13px 16px;
-      outline: none;
-      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .form-field::placeholder { color: var(--muted); }
-    .form-field:focus {
-      border-color: var(--bh);
-      box-shadow: 0 0 0 1px rgba(0,255,136,0.1), 0 0 24px rgba(0,255,136,0.07);
-      background: rgba(0,255,136,0.035);
-    }
-
-    /* ── Submit button ──────────────────────────────────── */
-    .btn {
-      position: relative;
-      overflow: hidden;
-      background: transparent;
-      border: 1px solid var(--g);
-      color: var(--g);
-      font-family: "Share Tech Mono", monospace;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      padding: 14px 36px;
-      cursor: pointer;
-      border-radius: 2px;
-      text-shadow: 0 0 10px rgba(0,255,136,0.4);
-      box-shadow: 0 0 18px rgba(0,255,136,0.08), inset 0 0 18px rgba(0,255,136,0.025);
-      transition: box-shadow 0.3s, background 0.3s;
-    }
-    /* Shimmer sweep on hover */
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -120%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0,255,136,0.12), transparent);
-      transition: left 0.45s ease;
-      pointer-events: none;
-    }
-    .btn:hover::before { left: 120%; }
-    .btn:hover {
-      background: rgba(0,255,136,0.04);
-      box-shadow: 0 0 32px rgba(0,255,136,0.22), inset 0 0 20px rgba(0,255,136,0.04);
-    }
-    .btn:active { transform: scale(0.98); }
-
-    /* Sending state */
-    .btn.sending {
-      animation: flicker 0.14s infinite;
-      cursor: wait;
-    }
-    @keyframes flicker { 0%,100%{opacity:1} 50%{opacity:0.65} }
-
-    /* Success state */
-    .btn.success {
-      border-color: var(--g);
-      box-shadow: 0 0 40px rgba(0,255,136,0.35);
-      cursor: default;
-      animation: none;
-    }
-
-    /* Error state */
-    .btn.error {
-      border-color: #ff3355;
-      color: #ff3355;
-      text-shadow: 0 0 10px rgba(255,51,85,0.5);
-      box-shadow: 0 0 24px rgba(255,51,85,0.18);
-      animation: none;
-    }
-
-    .btn:disabled { cursor: not-allowed; }
-
-    /* ── Fade-up entrance ───────────────────────────────── */
-    @keyframes fadeup {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fu  { animation: fadeup 0.8s ease-out both; }
-    .d1  { animation-delay: 0.15s; }
-    .d2  { animation-delay: 0.40s; }
-    .d3  { animation-delay: 0.70s; }
-    .d4  { animation-delay: 1.00s; }
-    .d5  { animation-delay: 1.30s; }
-
-    /* ── Scrollbar ──────────────────────────────────────── */
-    ::-webkit-scrollbar            { width: 4px; }
-    ::-webkit-scrollbar-track      { background: var(--bg); }
-    ::-webkit-scrollbar-thumb      { background: rgba(0,255,136,0.2); border-radius: 2px; }
-    ::-webkit-scrollbar-thumb:hover{ background: rgba(0,255,136,0.4); }
-  </style>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="canonical" href="https://aissamkhiri.com">
 </head>
 
 <body>
 
-  <!-- ░░ EFFECTS ░░ -->
-  <div class="scanline"  aria-hidden="true"></div>
-  <div class="vignette"  aria-hidden="true"></div>
-  <div class="glow-tl"   aria-hidden="true"></div>
-  <div class="glow-br"   aria-hidden="true"></div>
+  <!-- ═══════════════════════════════════════════════════════
+       ANIMATED BACKGROUND — Orbs + Grid + Particles
+  ═══════════════════════════════════════════════════════ -->
+  <div class="bg-scene" aria-hidden="true">
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+    <div class="bg-grid"></div>
+    <canvas id="particles" class="particles-canvas"></canvas>
+  </div>
 
-  <!-- ░░ MAIN ░░ -->
-  <div class="layer min-h-screen flex flex-col items-center justify-center px-5 py-20 sm:py-24">
 
-    <div class="w-full max-w-lg space-y-14">
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════════════════ -->
+  <header id="header" role="banner">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#home" class="nav-logo" aria-label="Aissam Khiri — home">
+        <span class="logo-dot" aria-hidden="true"></span>
+        AissamKhiri.com
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#privacy"  class="nav-link">Privacy</a></li>
+        <li><a href="#contact"  class="nav-link">Get in Touch</a></li>
+        <li><a href="#reserved" class="nav-link">Domain</a></li>
+      </ul>
+    </nav>
+  </header>
 
 
-      <!-- ══════════════  TERMINAL HEADER  ══════════════ -->
-      <div class="terminal fu">
+  <main id="main">
 
-        <!-- Title bar -->
-        <div class="terminal-bar">
-          <span class="live-dot"></span>
-          <span class="neon-label tracking-[0.28em]">SECURE CHANNEL ESTABLISHED</span>
-        </div>
+    <!-- ═══════════════════════════════════════════════════════
+         1. HERO SECTION
+    ═══════════════════════════════════════════════════════ -->
+    <section id="home" class="hero" aria-label="Hero">
+      <div class="container hero-inner">
 
-        <!-- Body -->
-        <div class="p-5 space-y-2.5 font-mono text-sm">
+        <!-- Left: Content -->
+        <div class="hero-content fade-in">
 
-          <div class="flex items-baseline gap-3">
-            <span class="text-zinc-600 w-[90px] flex-shrink-0 text-xs tracking-wider">STATUS</span>
-            <span class="text-zinc-500">:</span>
-            <span class="neon tracking-widest text-xs font-bold">ENCRYPTED</span>
+          <!-- Badge -->
+          <div class="hero-badge">
+            <span class="badge-pulse" aria-hidden="true"></span>
+            Official Reserved Domain
           </div>
 
-          <div class="flex items-baseline gap-3">
-            <span class="text-zinc-600 w-[90px] flex-shrink-0 text-xs tracking-wider">CONNECTION</span>
-            <span class="text-zinc-500">:</span>
-            <span class="neon tracking-widest text-xs font-bold">SECURE</span>
-          </div>
-
-          <div class="flex items-baseline gap-3">
-            <span class="text-zinc-600 w-[90px] flex-shrink-0 text-xs tracking-wider">PROTOCOL</span>
-            <span class="text-zinc-500">:</span>
-            <span class="text-zinc-400 text-xs">TLS 1.3 / AES-256-GCM</span>
-          </div>
-
-          <div class="flex items-baseline gap-3">
-            <span class="text-zinc-600 w-[90px] flex-shrink-0 text-xs tracking-wider">LOCATION</span>
-            <span class="text-zinc-500">:</span>
-            <span class="text-zinc-500 text-xs">[MASKED]</span>
-          </div>
-
-          <div class="flex items-baseline gap-3">
-            <span class="text-zinc-600 w-[90px] flex-shrink-0 text-xs tracking-wider">IDENTITY</span>
-            <span class="text-zinc-500">:</span>
-            <span class="neon text-xs tracking-[0.22em] font-bold">AISSAM KHIRI</span>
-          </div>
-
-          <hr class="neon-rule my-1" />
-
-          <div class="flex items-center gap-3">
-            <span class="text-zinc-700 text-xs font-mono" id="timestamp">--</span>
-            <span class="cursor"></span>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- ══════════════  STATEMENT  ══════════════════════ -->
-      <div class="text-center fu d1 space-y-6">
-
-        <p class="neon-label tracking-[0.32em]">// IDENTITY STATEMENT</p>
-
-        <!-- Main headline -->
-        <div class="space-y-1">
-          <h1 class="font-extrabold text-4xl sm:text-5xl text-white leading-tight tracking-tight"
-              style="font-family:'Plus Jakarta Sans',sans-serif;">
-            I am not on
+          <!-- Headline — Edit here -->
+          <h1 class="hero-title">
+            Aissam<br>
+            <span class="title-accent">Khiri</span>
           </h1>
-          <h1 class="font-extrabold text-4xl sm:text-5xl leading-tight tracking-tight"
-              style="font-family:'Plus Jakarta Sans',sans-serif;">
-            <span class="neon glitch" data-text="social media.">social media.</span>
-          </h1>
-        </div>
 
-        <hr class="neon-rule max-w-[80px] mx-auto" />
+          <!-- Subtitle -->
+          <p class="hero-sub">Reserved personal domain.</p>
 
-        <!-- Sub lines -->
-        <p class="text-zinc-400 text-base sm:text-lg font-light tracking-wide leading-loose"
-           style="font-family:'Plus Jakarta Sans',sans-serif;">
-          I don't post.&nbsp; I don't scroll.
-        </p>
-
-        <!-- THE statement -->
-        <p class="build-text text-6xl sm:text-7xl leading-none"
-           style="font-family:'Plus Jakarta Sans',sans-serif;">
-          I BUILD.
-        </p>
-
-        <hr class="neon-rule max-w-[80px] mx-auto" />
-
-        <!-- Closing line -->
-        <p class="text-zinc-500 text-sm sm:text-base leading-relaxed font-light italic"
-           style="font-family:'Plus Jakarta Sans',sans-serif;">
-          If you are here, you probably know why.<br />
-          <span class="text-zinc-200 not-italic font-semibold not-italic">
-            Let's talk business.
-          </span>
-        </p>
-
-      </div>
-
-
-      <!-- ══════════════  CONTACT FORM  ═══════════════════ -->
-      <div class="fu d2">
-        <p class="neon-label tracking-[0.32em] text-center mb-7">// INITIATE CONTACT</p>
-
-        <form id="contact-form" class="space-y-4" novalidate>
-
-          <!-- Email -->
-          <div>
-            <label class="neon-label block mb-2">EMAIL_ADDRESS</label>
-            <input
-              type="email"
-              id="field-email"
-              class="form-field"
-              placeholder="your@domain.com"
-              autocomplete="email"
-              required
-            />
-          </div>
-
-          <!-- Message -->
-          <div>
-            <label class="neon-label block mb-2">MESSAGE</label>
-            <textarea
-              id="field-msg"
-              class="form-field resize-none"
-              rows="5"
-              placeholder="Your message will be encrypted in transit..."
-              required
-            ></textarea>
-          </div>
-
-          <!-- Validation error -->
-          <p id="form-err" class="hidden font-mono text-xs tracking-wide"
-             style="color:#ff3355;">
-            ⚠&nbsp; ALL FIELDS REQUIRED BEFORE TRANSMISSION
+          <!-- Main message -->
+          <p class="hero-msg">
+            This website is intentionally minimal. For privacy reasons, no personal
+            information, biography, photos, social media links, or public details
+            are published here.
           </p>
 
-          <!-- Submit -->
-          <div class="pt-1">
-            <button type="submit" class="btn w-full sm:w-auto" id="submit-btn">
-              [ SEND ENCRYPTED MESSAGE ]
-            </button>
+          <!-- Support text -->
+          <p class="hero-support">
+            For legitimate inquiries, use the
+            <a href="#contact" class="inline-link">Get in Touch</a> section below.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn--primary">Get in Touch</a>
+            <a href="#privacy" class="btn btn--ghost">Privacy Note</a>
           </div>
 
-        </form>
+        </div><!-- /hero-content -->
+
+        <!-- Right: Identity Card -->
+        <div class="hero-card-wrap fade-in" style="animation-delay:0.18s">
+          <div class="id-card glass-card">
+
+            <div class="id-card-glow" aria-hidden="true"></div>
+
+            <div class="id-card-head">
+              <div class="id-avatar" aria-hidden="true">
+                <span class="id-initials">AK</span>
+                <div class="id-avatar-ring"></div>
+              </div>
+              <div>
+                <span class="id-name">Aissam Khiri</span>
+                <span class="id-domain">AissamKhiri.com</span>
+              </div>
+            </div>
+
+            <div class="id-rows">
+              <div class="id-row">
+                <span class="id-label">Status</span>
+                <span class="id-value id-val--green">
+                  <span class="id-dot" aria-hidden="true"></span>Reserved
+                </span>
+              </div>
+              <div class="id-row">
+                <span class="id-label">Visibility</span>
+                <span class="id-value">Minimal</span>
+              </div>
+              <div class="id-row">
+                <span class="id-label">Public Profile</span>
+                <span class="id-value id-val--muted">Not Published</span>
+              </div>
+              <div class="id-row">
+                <span class="id-label">Contact</span>
+                <span class="id-value id-val--blue">Via Form Only</span>
+              </div>
+            </div>
+
+            <div class="id-card-foot">
+              <span class="id-tag">Private &nbsp;·&nbsp; Minimal &nbsp;·&nbsp; Official</span>
+            </div>
+
+          </div><!-- /id-card -->
+        </div><!-- /hero-card-wrap -->
+
+      </div><!-- /hero-inner -->
+
+      <!-- Scroll indicator -->
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-line"></span>
+        <span class="scroll-text">Scroll</span>
       </div>
 
+    </section><!-- /hero -->
 
-      <!-- ══════════════  FOOTER  ══════════════════════════ -->
-      <div class="text-center fu d3 pt-4">
-        <hr class="neon-rule mb-6" />
-        <p class="font-mono text-xs text-zinc-600 tracking-[0.18em]">
-          © <span id="yr"></span> · AISSAM KHIRI · AISSAMKHIRI.COM
-        </p>
-        <p class="font-mono text-xs mt-2 tracking-[0.14em]" style="color:#27272a;">
-          NO SOCIAL · NO COOKIES · JUST WORK
-        </p>
+
+    <!-- ═══════════════════════════════════════════════════════
+         2. PRIVACY NOTE SECTION
+         Edit card titles and descriptions here
+    ═══════════════════════════════════════════════════════ -->
+    <section id="privacy" class="privacy-section" aria-labelledby="privacy-title">
+      <div class="container">
+
+        <div class="section-head fade-in">
+          <span class="section-label">Design Choice</span>
+          <h2 id="privacy-title" class="section-title">Privacy by Design</h2>
+          <p class="section-desc">
+            This page exists only as a simple official contact point. It does not share personal
+            details, private background information, social links, photos, or public biography.
+          </p>
+        </div>
+
+        <div class="privacy-grid">
+
+          <article class="priv-card glass-card fade-in">
+            <div class="priv-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect x="3" y="7" width="20" height="2" rx="1" fill="currentColor" opacity="0.9"/>
+                <rect x="3" y="12" width="14" height="2" rx="1" fill="currentColor" opacity="0.6"/>
+                <rect x="3" y="17" width="8" height="2" rx="1" fill="currentColor" opacity="0.35"/>
+              </svg>
+            </div>
+            <h3 class="priv-title">Minimal Presence</h3>
+            <p class="priv-desc">Only essential public information is shown. Nothing more is needed.</p>
+          </article>
+
+          <article class="priv-card glass-card fade-in" style="animation-delay:0.1s">
+            <div class="priv-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <circle cx="13" cy="9" r="4" stroke="currentColor" stroke-width="1.8" opacity="0.9"/>
+                <path d="M5 21c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
+                <line x1="4" y1="4" x2="22" y2="22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+              </svg>
+            </div>
+            <h3 class="priv-title">No Public Profile</h3>
+            <p class="priv-desc">No biography, photos, social media links, or personal timeline are published.</p>
+          </article>
+
+          <article class="priv-card glass-card fade-in" style="animation-delay:0.2s">
+            <div class="priv-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <rect x="3" y="11" width="20" height="12" rx="2" stroke="currentColor" stroke-width="1.8" opacity="0.9"/>
+                <path d="M8 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.55"/>
+                <circle cx="13" cy="17" r="2" fill="currentColor" opacity="0.9"/>
+              </svg>
+            </div>
+            <h3 class="priv-title">Contact Gate</h3>
+            <p class="priv-desc">Messages can be sent only through the Get in Touch section below.</p>
+          </article>
+
+        </div><!-- /privacy-grid -->
+      </div>
+    </section><!-- /privacy -->
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         3. GET IN TOUCH SECTION
+
+         STATIC FORM NOTE:
+         This form is UI only on GitHub Pages / Cloudflare Pages.
+         To connect a real form service, change:
+           action="#"  →  action="YOUR_SERVICE_URL"
+           method (add): method="POST"
+
+         Services:
+         - Formspree:  https://formspree.io  → action="https://formspree.io/f/YOUR_ID"
+         - Getform:    https://getform.io    → action="https://getform.io/f/YOUR_ID"
+         - Web3Forms:  https://web3forms.com → action + hidden input access_key
+         - Tally:      https://tally.so      → Replace form with Tally embed code
+         - Basin:      https://usebasin.com  → action="https://usebasin.com/f/YOUR_ID"
+    ═══════════════════════════════════════════════════════ -->
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-wrap">
+
+          <!-- Left: Info -->
+          <div class="contact-info fade-in">
+            <span class="section-label">Contact</span>
+            <h2 id="contact-title" class="section-title">Get in Touch</h2>
+            <p class="section-desc">
+              Use this form only for legitimate messages.
+              All inquiries are reviewed manually.
+            </p>
+            <div class="contact-notes">
+              <div class="contact-note">
+                <span class="note-dot" aria-hidden="true"></span>
+                <span>Legitimate inquiries only</span>
+              </div>
+              <div class="contact-note">
+                <span class="note-dot" aria-hidden="true"></span>
+                <span>No personal details shared in replies</span>
+              </div>
+              <div class="contact-note">
+                <span class="note-dot" aria-hidden="true"></span>
+                <span>Response is not guaranteed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Form card -->
+          <div class="contact-form-wrap fade-in" style="animation-delay:0.15s">
+
+            <!--
+              Replace action="#" with your form service URL to enable real submissions.
+              Example: action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+            -->
+            <form class="contact-form glass-card" action="#" novalidate aria-label="Get in touch form">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="reason">Reason for Contact</label>
+                <select id="reason" name="reason" required>
+                  <option value="" disabled selected>Select a reason...</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="business">Business</option>
+                  <option value="domain">Domain Related</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--full">
+                Send Message
+              </button>
+
+            </form>
+          </div>
+
+        </div><!-- /contact-wrap -->
+      </div>
+    </section><!-- /contact -->
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         4. RESERVED DOMAIN SECTION
+    ═══════════════════════════════════════════════════════ -->
+    <section id="reserved" class="reserved-section" aria-labelledby="reserved-title">
+      <div class="container">
+        <div class="reserved-inner fade-in">
+
+          <!-- Text -->
+          <div class="reserved-text">
+            <span class="section-label">Domain</span>
+            <h2 id="reserved-title" class="section-title">Reserved for Personal Use</h2>
+            <p class="section-desc">
+              AissamKhiri.com is reserved as a private personal domain. The page is intentionally
+              simple and does not provide public personal information.
+            </p>
+          </div>
+
+          <!-- Domain info card -->
+          <div class="domain-card glass-card">
+            <div class="dc-top-bar" aria-hidden="true">
+              <span class="dc-dot dc-dot--blue"></span>
+              <span class="dc-dot dc-dot--purple"></span>
+              <span class="dc-dot dc-dot--dim"></span>
+            </div>
+            <div class="dc-rows">
+              <div class="dc-row">
+                <span class="dc-label">Domain</span>
+                <span class="dc-val dc-val--blue">AissamKhiri.com</span>
+              </div>
+              <div class="dc-row">
+                <span class="dc-label">Status</span>
+                <span class="dc-val dc-val--green">
+                  <span class="id-dot" aria-hidden="true"></span>Reserved
+                </span>
+              </div>
+              <div class="dc-row">
+                <span class="dc-label">Purpose</span>
+                <span class="dc-val">Personal contact point</span>
+              </div>
+              <div class="dc-row">
+                <span class="dc-label">Public details</span>
+                <span class="dc-val dc-val--muted">Not published</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /reserved-inner -->
+      </div>
+    </section><!-- /reserved -->
+
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER — Edit links and year here
+  ═══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <span class="footer-logo">AissamKhiri.com</span>
+        <p class="footer-tagline">Reserved personal domain.</p>
       </div>
 
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#privacy" class="footer-link">Privacy Note</a>
+        <a href="#contact" class="footer-link">Get in Touch</a>
+      </nav>
+
+      <p class="footer-copy">&copy; 2026 AissamKhiri.com. All rights reserved.</p>
 
     </div>
-  </div><!-- /layer -->
+  </footer>
 
-
-  <!-- ░░ SCRIPTS ░░ -->
-  <script>
-    // ── Year ──────────────────────────────────────────────────────────────
-    document.getElementById('yr').textContent = new Date().getFullYear();
-
-    // ── Live timestamp ─────────────────────────────────────────────────────
-    const tsEl = document.getElementById('timestamp');
-    function tick() {
-      tsEl.textContent = new Date().toISOString().replace('T',' ').slice(0,19) + ' UTC';
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    // ── Contact form ───────────────────────────────────────────────────────
-    const form  = document.getElementById('contact-form');
-    const btn   = document.getElementById('submit-btn');
-    const email = document.getElementById('field-email');
-    const msg   = document.getElementById('field-msg');
-    const err   = document.getElementById('form-err');
-
-    // ─────────────────────────────────────────────────────────────────────
-    // FORM ENDPOINT — Replace with your Formspree form URL:
-    //   1. Sign up free at https://formspree.io
-    //   2. Create a new form → copy the endpoint URL
-    //   3. Replace the string below, e.g.:
-    //      'https://formspree.io/f/xabc1234'
-    // ─────────────────────────────────────────────────────────────────────
-    const ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      err.classList.add('hidden');
-
-      const emailVal = email.value.trim();
-      const msgVal   = msg.value.trim();
-
-      // Basic validation
-      if (!emailVal || !msgVal) {
-        err.classList.remove('hidden');
-        (emailVal ? msg : email).focus();
-        return;
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-        err.textContent = '⚠  INVALID EMAIL ADDRESS FORMAT';
-        err.classList.remove('hidden');
-        email.focus();
-        return;
-      }
-
-      // Sending state
-      btn.disabled = true;
-      btn.classList.add('sending');
-      btn.textContent = '[ SENDING ENCRYPTED PACKET... ]';
-
-      try {
-        const res = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept':       'application/json',
-          },
-          body: JSON.stringify({ email: emailVal, message: msgVal }),
-        });
-
-        if (res.ok) {
-          btn.classList.remove('sending');
-          btn.classList.add('success');
-          btn.textContent = '[ MESSAGE DELIVERED ✓ ]';
-          form.reset();
-        } else {
-          throw new Error('non-ok');
-        }
-
-      } catch {
-        btn.classList.remove('sending');
-        btn.classList.add('error');
-        btn.textContent = '[ TRANSMISSION FAILED — RETRY ]';
-
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.classList.remove('error');
-          btn.textContent = '[ SEND ENCRYPTED MESSAGE ]';
-          err.textContent = '⚠  ALL FIELDS REQUIRED BEFORE TRANSMISSION';
-        }, 3500);
-      }
-    });
-  </script>
-
+  <script src="./script.js"></script>
 </body>
 </html>
